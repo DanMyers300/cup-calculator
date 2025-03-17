@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Irregular Cone Volume Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        width: 100%;
+        background: #28a745;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #218838;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Irregular Cone Volume</h1>
+      <div>
+        <label for="radius1">Radius 1</label>
+        <input
+          type="number"
+          id="radius1"
+          step="any"
+          placeholder="Enter first radius"
+        />
+      </div>
+      <div>
+        <label for="radius2">Radius 2</label>
+        <input
+          type="number"
+          id="radius2"
+          step="any"
+          placeholder="Enter second radius"
+        />
+      </div>
+      <div>
+        <label for="height">Height</label>
+        <input
+          type="number"
+          id="height"
+          step="any"
+          placeholder="Enter height"
+        />
+      </div>
+      <button id="calculateBtn">Calculate Volume</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      // Calculate the volume using the formula:
+      // Volume = 1/3 * π (R1² + R1·R2 + R2²) · H
+      function calculateVolume(R1, R2, H) {
+        return (1 / 3) * Math.PI * (R1 ** 2 + R1 * R2 + R2 ** 2) * H;
+      }
+
+      document
+        .getElementById("calculateBtn")
+        .addEventListener("click", function () {
+          const radius1 = parseFloat(
+            document.getElementById("radius1").value
+          );
+          const radius2 = parseFloat(
+            document.getElementById("radius2").value
+          );
+          const height = parseFloat(document.getElementById("height").value);
+
+          if (isNaN(radius1) || isNaN(radius2) || isNaN(height)) {
+            alert("Please enter valid numerical values for all fields.");
+            return;
+          }
+
+          const volume = calculateVolume(radius1, radius2, height);
+          document.getElementById("result").textContent =
+            "Volume: " + volume.toFixed(2);
+        });
+    </script>
+  </body>
+</html>
+
