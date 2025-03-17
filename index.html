@@ -10,16 +10,20 @@
         padding: 20px;
       }
       .container {
-        max-width: 500px;
+        max-width: 350px;
         margin: 0 auto;
         background: #fff;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
       }
       h1 {
-        text-align: center;
         margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
       }
       label {
         display: block;
@@ -29,9 +33,9 @@
       input[type="number"] {
         width: 100%;
         padding: 10px;
-        margin-bottom: 15px;
         border: 1px solid #ddd;
         border-radius: 4px;
+        box-sizing: border-box;
       }
       button {
         width: 100%;
@@ -50,14 +54,13 @@
         margin-top: 20px;
         font-size: 18px;
         font-weight: bold;
-        text-align: center;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Irregular Cone Volume</h1>
-      <div>
+      <div class="form-group">
         <label for="radius1">Radius 1</label>
         <input
           type="number"
@@ -66,7 +69,7 @@
           placeholder="Enter first radius"
         />
       </div>
-      <div>
+      <div class="form-group">
         <label for="radius2">Radius 2</label>
         <input
           type="number"
@@ -75,7 +78,7 @@
           placeholder="Enter second radius"
         />
       </div>
-      <div>
+      <div class="form-group">
         <label for="height">Height</label>
         <input
           type="number"
@@ -90,7 +93,8 @@
 
     <script>
       // Calculate the volume using the formula:
-      // Volume = 1/3 * π (R1² + R1·R2 + R2²) · H
+      // $$\text{Volume} = \frac{1}{3} \pi \left(
+      // R_1^2 + R_1 R_2 + R_2^2 \right) H$$
       function calculateVolume(R1, R2, H) {
         return (1 / 3) * Math.PI * (R1 ** 2 + R1 * R2 + R2 ** 2) * H;
       }
@@ -118,4 +122,3 @@
     </script>
   </body>
 </html>
-
